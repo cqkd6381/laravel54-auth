@@ -10,7 +10,7 @@ class CaptchaController extends Controller
     public function captcha()
     {
     	$builder = new CaptchaBuilder();
-    	$builder->build(160,60,null);
+    	$builder->build(160,40,null);
 
     	Session::flash('laravel-captcha',$builder->getPhrase());
 
