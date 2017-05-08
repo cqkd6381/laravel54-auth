@@ -40,6 +40,15 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
+                                <input type="text" name="captcha" class="form-control">
+                                <a id="refresh-captcha" onclick="re_captcha()">
+                                    <img src="/captcha/1" alt="验证码" title="刷新图片" width="160" height="60" id="captcha" border="0">
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
@@ -65,4 +74,10 @@
         </div>
     </div>
 </div>
+<script>
+    function re_captcha(){
+        var url = "/captcha/" + Math.random();
+        document.getElementById('captcha').src = url;
+    }
+</script>
 @endsection
